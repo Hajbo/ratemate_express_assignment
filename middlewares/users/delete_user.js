@@ -1,6 +1,7 @@
+var requireOption = require('../utils/object_repository_utils').requireOption;
+
 /**
- * Redirects logged in users to `/` so users can't
- * register while logged in or try to log in once again
+ * Deletes the user object
  */
 module.exports = function (objectrepository) {
 

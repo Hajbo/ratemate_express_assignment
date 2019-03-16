@@ -1,7 +1,10 @@
 var requireOption = require('../utils/object_repository_utils').requireOption;
 
 /**
- * Logs out the user
+ * Creates a user if the email is available and
+ * the password is long enough
+ * Furthermore, the first registered user will 
+ * get admin rights
  */
 module.exports = function (objectrepository) {
 
@@ -9,4 +12,5 @@ module.exports = function (objectrepository) {
 
         return next();
     };
+
 };
