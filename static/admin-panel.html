@@ -1,0 +1,119 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>RateMate</title>
+
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/site.css">
+
+        <!-- Form specific css-->
+        <link rel="stylesheet" href="assets/css/form.css">
+        <link rel="stylesheet" href="assets/css/admin.css">
+
+        <!-- It would be too much to download these with the images...-->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <!-- Form specific css-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    </head>
+    
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+                <a class="navbar-brand" href="#">
+                    RateMate
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarToggler">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="register.html">Registration</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Log in</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="movies.html">Movies</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="movie.html">Movie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="profile.html">Profile</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin-panel.html">Admin</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        
+        <section class="default-section">
+            <div class="text-container">
+                <div class="text-header">Admin panel</div>
+                <div class="add-movie-form form-dark">
+                    <form class="add-movie-form" method="post">
+                        <div class="form-group"><input class="form-control add-movie-form" type="text" name="title" placeholder="Title"/></div>
+                        <div class="form-group"><textarea class="form-control add-movie-form" type="text" name="description" placeholder="Description"></textarea></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Add movie</button></div>
+                    </form>
+                </div>
+                <table class="table admin-table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Titanic</td>
+                            <td>This is a very sad movie starring the young Leonardo</td>
+                            <td><form action="" method="post"><button class="btn btn-sm btn-warning" type="submit" value="1">Remove</button></form></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Harry Potter</td>
+                            <td>You're a wizzard Harry, and also the unfortunate recipient of a destiny you never asked for,
+                                so good luck with that
+                            </td>
+                            <td><form action="" method="post"><button class="btn btn-sm btn-warning" type="submit" value="2">Remove</button></form></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Rambo</td>
+                            <td>A lot of shooting going on</td>
+                            <td><form action="" method="post"><button class="btn btn-sm btn-warning" type="submit" value="3">Remove</button></form></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+        </section>
+        
+        <footer class="bg-dark footer-container">
+            <div class="streched-footer">
+                <p>© 2019 RateMate, All right reserved</p>
+                <div class="icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-google-plus-g"></i></a>
+                </div>
+            </div>
+        </footer>
+        
+        <!-- Scripts -->
+        <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+    </body>
+</html>

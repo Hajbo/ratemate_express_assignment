@@ -1,0 +1,117 @@
+html{
+    height: 100%;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+a { 
+    color: #9c3; 
+}
+
+a:hover{
+    color: #769e26;
+    text-decoration: none;
+}
+
+h1, h2{
+    font-family: sans-serif;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 34px;
+    color: #404040;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 { font-size: 18px; }
+
+
+.middle-text {
+    align-self: center;
+    text-align: center;
+}
+
+.footer-container {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.streched-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: center;
+    color: white;
+    padding-left: 10%;
+    padding-right: 10%;
+    height: 5vh;
+}
+
+.streched-footer i {
+    color: #9c3;
+    margin-right: 3%;
+}
+
+.streched-footer p {
+    margin: 0px;
+}
+
+.icons {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.icons a {
+    margin-right: 20%;
+}
+
+.index-section {
+    background-image: url("../../assets/img/filmstrips-bg.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    color: black;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+.text-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    width: 60%;
+    margin-left: 20%;
+    padding: 5%;
+}
+
+.sticky-top {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.default-section {
+    background:#475d62 url(../../assets/img/star-sky-bg-small.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.text-header {
+    color: #9c3;
+    font-size: 3rem;
+}

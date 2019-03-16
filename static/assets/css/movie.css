@@ -1,0 +1,36 @@
+.movie {
+    margin-top: 3%;
+    background-color:#1e2833;
+}
+
+.movie-header {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.title {
+    width: 70%;
+    color: #9c3;
+    font-size: 3rem;
+}
+
+.score {
+    width: 30%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: #9c3;
+    font-size: 2rem;
+}
+
+.form-button {
+    margin-left: 30%;
+    max-width: 40%;
+}
+
+.add-movie-rating-form {
+    text-align: center;
+}

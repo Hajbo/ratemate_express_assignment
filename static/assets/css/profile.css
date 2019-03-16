@@ -1,0 +1,16 @@
+.profile {
+    display: flex;
+    justify-content: center;
+}
+
+.settings-column {
+    max-width: 30%;
+    width: 30%;
+    padding-right: 5%;
+}
+
+.rated-movies-column {
+    width: 50%;
+    margin-top: 35%;
+    padding-bottom: 10%;
+}
