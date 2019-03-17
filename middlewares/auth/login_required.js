@@ -1,5 +1,5 @@
 /**
- * Redirects the unauthenticated(guest) users to `/`
+ * Redirects the unauthenticated(guest) users to /
  * to protect endpoints
  */
 module.exports = function (objectrepository) {

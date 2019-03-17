@@ -1,10 +1,8 @@
 var requireOption = require('../utils/object_repository_utils').requireOption;
 
 /**
- * Creates a new movie if it has the data for it
- * and the user is an admin
- * OR
- * Updates the score for an existing movie
+ * Loads the current users' data and 
+ * puts it on res.tpl.profile
  */
 module.exports = function (objectrepository) {
 

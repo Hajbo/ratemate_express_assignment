@@ -2,6 +2,7 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
 
 /**
  * Logs out the user
+ * Redirects to /
  */
 module.exports = function (objectrepository) {
 
