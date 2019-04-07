@@ -9,6 +9,10 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
+        var newTitle = req.body.title;
+        var newDescription = req.body.description;
+        var newRating = req.body.rating;
+        
         return next();
     };
 

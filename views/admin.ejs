@@ -1,0 +1,39 @@
+<% include header %>
+
+<section class="default-section">
+            <div class="text-container">
+                <div class="text-header">Admin panel</div>
+                <div class="add-movie-form form-dark">
+                    <form class="add-movie-form" method="post" action='/movies/new'>
+                        <div class="form-group"><input class="form-control add-movie-form" type="text" name="title" placeholder="Title"/></div>
+                        <div class="form-group"><textarea class="form-control add-movie-form" type="text" name="description" placeholder="Description"></textarea></div>
+                        <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Add movie</button></div>
+                    </form>
+                </div>
+                <table class="table admin-table">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Description</th>
+                        <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <% movies.forEach(function(movie) { %>
+                            <tr>
+                                <th scope="row"> <%= movie.id %> </th>
+                                <td> <%= movie.title %> </td>
+                                <td> <%= movie.description %> </td>
+                                <td><form action="/movies/<%=movie.id %>/delete" method="GET"><button class="btn btn-sm btn-warning" type="submit" name='id'>Remove</button></form></td>
+                            </tr>
+                        <% }) %>
+
+                    </tbody>
+                </table>
+            </div>
+            
+        </section>
+
+<% include footer %>

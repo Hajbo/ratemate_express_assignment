@@ -1,0 +1,44 @@
+<% include header %>
+
+        <section class="default-section">
+            <div class="text-container">
+                <div class="movie">
+                    <div class="movie-header"> <div class="title"><%= movie.title %></div> <div class="score">Avg. score: <%= movie.rating %></div></div>
+                    <div class="form-dark">
+                        <form method="post">
+                            <div class="form-group"><input class="form-control add-movie-rating-form" type="number" name="score" placeholder="Score" value="4" min="1" max="5"/></div>
+                            <div class="form-group"><textarea class="form-control add-movie-rating-form" type="text" name="description" placeholder="Comment">I enjoyed it a lot but the plot has bigger holes than the Váci út</textarea></div>
+                            <div class="form-group form-button"><button class="btn btn-primary btn-sm btn-block" type="submit">Rate</button></div>
+                            <div class="form-group form-button"><button id="delete-rating-button" class="btn btn-warning btn-sm btn-block" type="submit">Delete rating</button></div>
+                        </form>
+                    </div>
+                    <br>
+                    <table class="table admin-table">
+                            <thead>
+                                <tr>
+                                <th scope="col">User</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Comment</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% ratings.forEach(function(rating) { %>
+                                    <tr>
+                                        <th> <%= rating.username %> </th>
+                                        <td> <%= rating.score %> </td>
+                                        <td> <%= rating.comment %> </td>
+                                        <%if (user.username == rating.username) { %>
+                                            <td><form action="/ratings/<%=movie.id %>/delete" method="GET">
+                                                <button class="btn btn-sm btn-warning" type="submit" name='id'>Remove</button>
+                                            </form></td>
+                                        <% } %>
+                                    </tr>
+                                <% }) %>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </section>
+        
+<% include footer %>

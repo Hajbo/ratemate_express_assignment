@@ -6,6 +6,9 @@ var userListMW = require('../middlewares/users/get_user_list');
 var currentUserMW = require('../middlewares/users/profile')
 var renderMW = require('../middlewares/utils/render');
 
+
+var movieListMW = require('../middlewares/movies/get_movie_list');
+
 var userModel = {};
 var movieModel = {};
 
@@ -22,6 +25,7 @@ module.exports = function(app) {
     app.get('/profile',
         authMW(objectRepository),
         currentUserMW(objectRepository),
+        movieListMW(objectRepository), // This should be user specific - only rated movies
         renderMW(objectRepository, 'profile')
     );
 

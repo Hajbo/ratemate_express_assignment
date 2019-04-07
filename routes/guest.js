@@ -3,6 +3,7 @@ var renderMW = require('../middlewares/utils/render');
 var logoutMW = require('../middlewares/auth/logout')
 var checkRegistrationMW = require('../middlewares/auth/check_registration_credentials')
 var checkLoginMW = require('../middlewares/auth/check_login_credentials')
+var updateUserMW = require('../middlewares/users/update_user');
 
 var userModel = {};
 
@@ -39,6 +40,7 @@ module.exports = function(app) {
     app.post('/register',
         invAuthMW(objectRepository),
         checkRegistrationMW(objectRepository),
+        updateUserMW(objectRepository),
         // The middleware chain breaks here
         // if the registration was successful
         renderMW(objectRepository, 'register')

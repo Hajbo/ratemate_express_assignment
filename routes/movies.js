@@ -32,6 +32,7 @@ module.exports = function(app) {
      */
     app.post('/movies/new',
         authMW(objectRepository),
+        adminMW(objectRepository),
         updateMovieMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/admin');
@@ -44,6 +45,7 @@ module.exports = function(app) {
      */
     app.post('/movies/delete',
         authMW(objectRepository),
+        adminMW(objectRepository),
         deleteMovieMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/admin');

@@ -4,7 +4,7 @@
 module.exports = function (objectrepository, viewName) {
    
     return function (req, res) {
-        res.end('Template: ' + viewName)
+        res.render(viewName, res.tpl);
     };
 
   };

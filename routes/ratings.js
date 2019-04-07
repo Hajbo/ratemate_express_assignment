@@ -15,7 +15,7 @@ module.exports = function(app) {
 
 
     /**
-     * Delete the rating
+     * New rating
      * Then redirect to the movie it belonged to
      */
     app.post('/ratings/new',
