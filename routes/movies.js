@@ -6,6 +6,7 @@ var renderMW = require('../middlewares/utils/render');
 var movieByIdMW = require('../middlewares/movies/get_movie_by_id');
 var movieListMW = require('../middlewares/movies/get_movie_list');
 var getRatingsMW = require('../middlewares/ratings/get_ratings_for_movie');
+var currentUserMW = require('../middlewares/users/current_user');
 
 var userModel = require('../models/user');
 var movieModel = require('../models/movie');
@@ -22,6 +23,7 @@ module.exports = function(app) {
      */
     app.get('/movies',
         authMW(objectRepository),
+        currentUserMW(objectRepository),
         movieListMW(objectRepository),
         renderMW(objectRepository, 'movies')
     );
@@ -33,6 +35,7 @@ module.exports = function(app) {
     app.post('/movies/new',
         authMW(objectRepository),
         adminMW(objectRepository),
+        currentUserMW(objectRepository),
         updateMovieMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/admin');
@@ -46,6 +49,7 @@ module.exports = function(app) {
     app.post('/movies/delete',
         authMW(objectRepository),
         adminMW(objectRepository),
+        currentUserMW(objectRepository),
         deleteMovieMW(objectRepository),
         function (req, res, next) {
             return res.redirect('/admin');
@@ -57,6 +61,7 @@ module.exports = function(app) {
      */
     app.get('/movie/:movieid',
         authMW(objectRepository),
+        currentUserMW(objectRepository),
         movieByIdMW(objectRepository),
         getRatingsMW(objectRepository),
         renderMW(objectRepository, 'movie')

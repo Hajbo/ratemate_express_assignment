@@ -3,7 +3,7 @@ var updateUserMW = require('../middlewares/users/update_user');
 var deleteUserMW = require('../middlewares/users/delete_user');
 var userByIdMW = require('../middlewares/users/get_user_by_id');
 var userListMW = require('../middlewares/users/get_user_list');
-var currentUserMW = require('../middlewares/users/profile')
+var currentUserMW = require('../middlewares/users/current_user');
 var renderMW = require('../middlewares/utils/render');
 
 

@@ -7,7 +7,7 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
  */
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        res.tpl.movies = moviedb;
+        res.tpl.movies = [];
         return next();
     };
 

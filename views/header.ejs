@@ -37,7 +37,7 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/index">Home </a>
                         </li>
-                        <% if(typeof user == 'undefined') { %>
+                        <% if(typeof user === 'undefined') { %>
                         <li class="nav-item">
                             <a class="nav-link" href="/register">Registration</a>
                         </li>
@@ -45,7 +45,7 @@
                             <a class="nav-link" href="/login">Log in</a>
                         </li>
                         <% } %>
-                        <% if(typeof user != 'undefined') { %>
+                        <% if(typeof user !== 'undefined') { %>
                             <li class="nav-item">
                                 <a class="nav-link" href="/movies">Movies</a>
                             </li>
@@ -57,7 +57,7 @@
                             </li>
                         <% } %>
 
-                        <% if(typeof user != 'undefined' && user.isAdmin) { %>
+                        <% if(typeof user !== 'undefined' && user.isAdmin) { %>
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin">Admin</a>
                             </li>
