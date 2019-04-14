@@ -7,7 +7,7 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        res.locals.profile = res.locals.user;
+        res.locals.user = req.session.user;
         return next();
     };
 
