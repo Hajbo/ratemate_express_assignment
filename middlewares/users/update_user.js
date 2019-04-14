@@ -9,8 +9,6 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
  */
 module.exports = function (objectrepository) {
     return function (req, res, next) {
-        users.push(res.tpl.user);
-        req.session.user = user;
         return res.redirect('/profile');
     };
 };

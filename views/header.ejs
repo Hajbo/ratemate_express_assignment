@@ -56,8 +56,9 @@
                                 <a class="nav-link" href="/logout">Log out</a>
                             </li>
                         <% } %>
-
-                        <% if(typeof user !== 'undefined' && user.isAdmin) { %>
+                        
+                        
+                        <% if( (typeof user !== 'undefined') && user.isAdmin) { %>
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin">Admin</a>
                             </li>

@@ -44,9 +44,13 @@ module.exports = function (objectrepository) {
                 user.email = req.body.email;
                 user.password = req.body.password;
                 // The first user is an admin
-                user.isAdmin = UserModel.count() === 0;
-                user.save(function (err) {
-                    return res.redirect('/login');
+                var isAdmin = false;
+                UserModel.countDocuments( function(err, count){
+                    isAdmin = count === 0;
+                    user.isAdmin = isAdmin;
+                    user.save(function (err) {
+                        return res.redirect('/login');
+                    });
                 });
             }
         );

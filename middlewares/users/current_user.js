@@ -10,13 +10,13 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {
 
-    userModel.find({_id: req.session.userid}, 
-        function (err, results) {
+    userModel.findOne({_id: req.session.userid}, 
+        function (err, result) {
             if (err) {
                 return next(err);
             }
 
-            res.tpl.user = results;
+            res.tpl.user = result;
 
             return next();
     });

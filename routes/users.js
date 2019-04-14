@@ -4,6 +4,7 @@ var deleteUserMW = require('../middlewares/users/delete_user');
 var userByIdMW = require('../middlewares/users/get_user_by_id');
 var userListMW = require('../middlewares/users/get_user_list');
 var currentUserMW = require('../middlewares/users/current_user');
+var logoutMW = require('../middlewares/auth/logout');
 var renderMW = require('../middlewares/utils/render');
 
 
@@ -27,6 +28,14 @@ module.exports = function(app) {
         currentUserMW(objectRepository),
         movieListMW(objectRepository), // This should be user specific - only rated movies
         renderMW(objectRepository, 'profile')
+    );
+
+    /**
+     * Log out endpoint
+     */
+    app.use('/logout',
+        authMW(objectRepository),
+        logoutMW(objectRepository)
     );
 
     /**

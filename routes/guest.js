@@ -1,8 +1,7 @@
-var invAuthMW = require('../middlewares/auth/guest_required')
+var invAuthMW = require('../middlewares/auth/guest_required');
 var renderMW = require('../middlewares/utils/render');
-var logoutMW = require('../middlewares/auth/logout')
-var checkRegistrationMW = require('../middlewares/auth/check_registration_credentials')
-var checkLoginMW = require('../middlewares/auth/check_login_credentials')
+var checkRegistrationMW = require('../middlewares/auth/check_registration_credentials');
+var checkLoginMW = require('../middlewares/auth/check_login_credentials');
 var updateUserMW = require('../middlewares/users/update_user');
 
 var userModel = require('../models/user');
@@ -46,11 +45,4 @@ module.exports = function(app) {
         renderMW(objectRepository, 'register')
     );
 
-    /**
-     * Log out endpoint
-     */
-    app.use('/logout',
-        invAuthMW(objectRepository),
-        logoutMW(objectRepository)
-    );
 }
