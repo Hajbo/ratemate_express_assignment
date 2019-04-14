@@ -2,12 +2,12 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
 
 /**
  * Loads the user with the given id
- * and put it on res.locals.user
+ * and put it on res.tpl.user
  */
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        res.locals.user = users[0];
+        res.tpl.user = users[0];
         return next();
     };
 

@@ -7,8 +7,8 @@ var movieByIdMW = require('../middlewares/movies/get_movie_by_id');
 var movieListMW = require('../middlewares/movies/get_movie_list');
 var getRatingsMW = require('../middlewares/ratings/get_ratings_for_movie');
 
-var userModel = {};
-var movieModel = {};
+var userModel = require('../models/user');
+var movieModel = require('../models/movie');
 
 module.exports = function(app) {
     

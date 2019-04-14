@@ -1,43 +1,54 @@
 var requireOption = require('../utils/object_repository_utils').requireOption;
 
 /**
- * Creates a user if the email is available and
+ * Creates a user if the username is available and
  * the password is long enough
  * Furthermore, the first registered user will 
  * get admin rights
  * A failed registration attempt will not break the
  * middleware chain and render /register
- * A successful registration will continue the MW chain
+ * A successful registration will redirect to /login
  */
 module.exports = function (objectrepository) {
 
-    // TODO: proper checks, e.g. existing users, passwords etc.
-    //  Break the MW chain if any problem occurs
-
+    var UserModel = requireOption(objectrepository, 'userModel');
+  
     return function (req, res, next) {
-        var email = req.body.email;
-        var username = req.body.username;
-        var password = req.body.password;
-        var id = users.length;
-        if(id == 0) {
-            var isAdmin = true;
-        } else {
-            var isAdmin = false;
-        }
 
-        user = {
-            id: id,
-            email: email,
-            username: username,
-            password: password,
-            isAdmin: isAdmin, 
-            newUser: true
+        if ((typeof req.body === 'undefined') || (typeof req.body.email === 'undefined') 
+            || (typeof req.body.password === 'undefined')) {
+            return next();
         }
-        
-        res.locals.user = user;
+  
+        //Only the username is unique
+        UserModel.findOne({username: req.body.username}, 
+            function (err, result) {
 
-        // Not every reg. request should pass...
-        return next();
+                if ((err) || (result !== null)) {
+                    res.tpl.error.push('Username already taken!');
+                    return next();
+                }
+
+                if (req.body.password !== req.body.passwordConfirm) {
+                    res.tpl.error.push('Passwords does not match!');
+                    return next();
+                }
+
+                if (req.body.password.length < 6) {
+                    res.tpl.error.push('The password has to be atleast 6 character long!');
+                    return next();
+                }
+
+                var user = new UserModel();
+                user.username = req.body.username;
+                user.email = req.body.email;
+                user.password = req.body.password;
+                // The first user is an admin
+                user.isAdmin = UserModel.count() === 0;
+                user.save(function (err) {
+                    return res.redirect('/login');
+                });
+            }
+        );
     };
-
 };

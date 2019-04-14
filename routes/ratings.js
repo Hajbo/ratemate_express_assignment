@@ -3,8 +3,9 @@ var updateRatingMW = require('../middlewares/ratings/update_rating');
 var deleteRatingMW = require('../middlewares/ratings/delete_rating');
 var updateMovieMW = require('../middlewares/movies/update_movie');
 
-var userModel = {};
-var ratingModel = {};
+var userModel = require('../models/user');
+var movieModel = require('../models/movie');
+var ratingModel = require('../models/rating');
 
 module.exports = function(app) {
     

@@ -3,7 +3,7 @@ var adminMW = require('../middlewares/admin/admin_required')
 var renderMW = require('../middlewares/utils/render');
 var movieListMW = require('../middlewares/movies/get_movie_list');
 
-var userModel = {};
+var userModel = require('../models/user');
 
 module.exports = function(app) {
     

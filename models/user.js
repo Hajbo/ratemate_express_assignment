@@ -1,7 +1,7 @@
 var db = require('../config/db');
 
 var User = db.model('User', {
-  name: String,
+  username: String,
   email: String,
   password: String,
   isAdmin: Boolean

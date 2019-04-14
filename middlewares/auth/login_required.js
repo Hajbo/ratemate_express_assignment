@@ -5,10 +5,9 @@
 module.exports = function (objectrepository) {
 
     return function (req, res, next) {
-        if( typeof req.session.user === 'undefined'){
+        if( typeof req.session.userid === 'undefined'){
             return res.redirect('/')
         }
-        res.locals.user = req.session.user;
         return next();
     };
 

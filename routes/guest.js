@@ -5,7 +5,7 @@ var checkRegistrationMW = require('../middlewares/auth/check_registration_creden
 var checkLoginMW = require('../middlewares/auth/check_login_credentials')
 var updateUserMW = require('../middlewares/users/update_user');
 
-var userModel = {};
+var userModel = require('../models/user');
 
 module.exports = function(app) {
     
