@@ -6,9 +6,16 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
  */
 module.exports = function (objectrepository) {
 
-    return function (req, res, next) {
-        res.tpl.user = users[0];
-        return next();
+    var userModel = requireOption(objectrepository, 'userModel');
+
+    return function (req, res, next) {userModel.findOne({_id: req.params.userid}, 
+        function (err, result) {
+            if (err) {
+                return next(err);
+            }
+            res.tpl.user = result;
+            return next();
+        });
     };
 
 };

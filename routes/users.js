@@ -1,8 +1,6 @@
 var authMW = require('../middlewares/auth/login_required');
 var updateUserMW = require('../middlewares/users/update_user');
 var deleteUserMW = require('../middlewares/users/delete_user');
-var userByIdMW = require('../middlewares/users/get_user_by_id');
-var userListMW = require('../middlewares/users/get_user_list');
 var currentUserMW = require('../middlewares/users/current_user');
 var logoutMW = require('../middlewares/auth/logout');
 var renderMW = require('../middlewares/utils/render');
@@ -42,7 +40,7 @@ module.exports = function(app) {
      * Delete user
      * Then redirect to /
      */
-    app.post('/user/:userid/delete',
+    app.post('/user/delete',
         authMW(objectRepository),
         currentUserMW(objectRepository),
         deleteUserMW(objectRepository),
@@ -55,7 +53,7 @@ module.exports = function(app) {
      * Update user
      * Then redirect to /profile
      */
-    app.post('/user/:userid/edit',
+    app.post('/user/edit',
         authMW(objectRepository),
         currentUserMW(objectRepository),
         updateUserMW(objectRepository),

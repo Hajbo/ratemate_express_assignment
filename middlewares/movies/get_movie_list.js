@@ -6,9 +6,17 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
  * on res.tpl.movies
  */
 module.exports = function (objectrepository) {
-    return function (req, res, next) {
-        res.tpl.movies = [];
-        return next();
+    
+    var movieModel = requireOption(objectrepository, 'movieModel');
+
+    return function (req, res, next) {movieModel.find({}, 
+        function (err, result) {
+            if (err) {
+                return next(err);
+            }
+            res.tpl.movies = result;
+            return next();
+        });
     };
 
 };

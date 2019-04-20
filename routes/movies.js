@@ -45,6 +45,7 @@ module.exports = function(app) {
     /**
      * Delete movie
      * Only for logged in admins
+     * Body contains the movieid
      */
     app.post('/movies/delete',
         authMW(objectRepository),

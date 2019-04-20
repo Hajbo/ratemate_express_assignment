@@ -21,12 +21,14 @@
                     </thead>
                     <tbody>
 
+                        <% var rowid = 0 %>
                         <% movies.forEach(function(movie) { %>
+                            <% rowid += 1 %>
                             <tr>
-                                <th scope="row"> <%= movie.id %> </th>
+                                <th scope="row"> <%= rowid %> </th>
                                 <td> <%= movie.title %> </td>
                                 <td> <%= movie.description %> </td>
-                                <td><form action="/movies/<%=movie.id %>/delete" method="GET"><button class="btn btn-sm btn-warning" type="submit" name='id'>Remove</button></form></td>
+                                <td><form action="/movies/delete" method="POST"><button class="btn btn-sm btn-warning" type="submit" name='movieid' value='<%= movie.id %>'>Remove</button></form></td>
                             </tr>
                         <% }) %>
 

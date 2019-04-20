@@ -1,8 +1,14 @@
 var renderMW = require('../middlewares/utils/render');
+var currentUserMW = require('../middlewares/users/current_user');
+
+var userModel = require('../models/user');
+
 
 module.exports = function(app) {
     
-    var objectRepository = {};
+    var objectRepository = {
+        userModel: userModel
+    };
 
     /**
      * Main page
@@ -10,6 +16,7 @@ module.exports = function(app) {
      * users
      */
     app.use('/',
+        currentUserMW(objectRepository),
         renderMW(objectRepository, 'index')
     );
 }
