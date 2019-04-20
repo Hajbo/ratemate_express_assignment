@@ -8,10 +8,22 @@ module.exports = function (objectrepository) {
     
     var movieModel = requireOption(objectrepository, 'movieModel');
 
-    return function (req, res, next) {movieModel.findOne({_id: req.params.movieid}, 
+    return function (req, res, next) {
+
+        var movieid;
+
+        if (typeof req.params.movieid !== 'undefined') {
+            movieid = req.params.movieid;
+        } else if (typeof req.body.movieid !== 'undefined') {
+            movieid = req.body.movieid;
+        } else {
+            return res.redirect('/movies');
+        }
+
+        movieModel.findOne({_id: movieid}, 
         function (err, result) {
-            if (err) {
-                return next(err);
+            if ((err) || (result === null)){
+                return res.redirect('/movies');
             }
             res.tpl.movie = result;
             return next();

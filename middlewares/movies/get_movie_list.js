@@ -10,11 +10,11 @@ module.exports = function (objectrepository) {
     var movieModel = requireOption(objectrepository, 'movieModel');
 
     return function (req, res, next) {movieModel.find({}, 
-        function (err, result) {
+        function (err, results) {
             if (err) {
                 return next(err);
             }
-            res.tpl.movies = result;
+            res.tpl.movies = results;
             return next();
         });
     };

@@ -10,12 +10,10 @@ module.exports = function (objectrepository) {
 
     return function (req, res, next) {userModel.findOne({_id: req.session.userid}, 
         function (err, result) {
-            if (err) {
+            if ((err) || (result === null) ){
                 return next(err);
             }
-            if (result) {
-                res.tpl.user = result;
-            }
+            res.tpl.user = result;
             return next();
         });
     };
