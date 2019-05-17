@@ -7,9 +7,9 @@ var requireOption = require('../utils/object_repository_utils').requireOption;
 module.exports = function (objectrepository) {
 
 	return function (req, res, next) {
-		req.session.destroy(function (err) {
-			return next();
-		});
+		req.session.destroy(err => {
+            res.redirect('/');
+        });
 	};
 
   };
